@@ -1,5 +1,5 @@
 const assert=require('node:assert/strict');const m=require('../docs/model.js');
-const N=4,SPLIT=4,ids=m.IDS,near=(a,b)=>Math.abs(a-b)<1e-9;
+const N=3,SPLIT=3,ids=m.IDS,near=(a,b)=>Math.abs(a-b)<1e-9;
 const currents=Object.fromEntries(ids.map((id,i)=>[id,1+i*.1])),cables={},voltages={};let v=30;
 for(let n=1;n<=N;n++){if(n===SPLIT+1)v=25;let end=n<=SPLIT?SPLIT:N;let it=ids.filter(id=>+id[0]>=n&&+id[0]<=end).reduce((s,id)=>s+currents[id],0);cables['Rc'+n]=n*.1;v-=it*cables['Rc'+n];voltages[n]=v}
 const input={VA:30,VB:25,voltages,currents},r=m.dimension(input);

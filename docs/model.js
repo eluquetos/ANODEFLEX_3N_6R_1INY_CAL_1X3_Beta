@@ -1,7 +1,7 @@
 (function(root,factory){const api=factory();if(typeof module==="object"&&module.exports)module.exports=api;else root.AnodeflexModel=api})(typeof globalThis!=="undefined"?globalThis:this,function(){
-  const NODES=[1,2,3,4];
+  const NODES=[1,2,3];
   const IDS=NODES.flatMap(node=>[`${node}1`,`${node}2`]);
-  const SIDES={A:{voltage:"VA",nodes:[1, 2, 3, 4] },B:{voltage:"VB",nodes:[] }};
+  const SIDES={A:{voltage:"VA",nodes:[1, 2, 3] },B:{voltage:"VB",nodes:[] }};
   const sum=values=>values.reduce((total,value)=>total+value,0);
   const parallel=values=>1/sum(values.map(value=>1/value));
   const positive=value=>Number.isFinite(value)&&value>0;
